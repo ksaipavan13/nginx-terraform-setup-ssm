@@ -78,6 +78,7 @@ resource "aws_instance" "nginx_ec2" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.nginx_sg.id]  # Use security group ID
+  monitoring = true  # Enable CloudWatch detailed monitoring
 
   iam_instance_profile = aws_iam_instance_profile.ec2_ssm_instance_profile.name
 
